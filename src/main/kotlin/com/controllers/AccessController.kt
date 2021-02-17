@@ -17,9 +17,17 @@ fun Routing.accessRoute() {
         val code = gson.fromJson(body, Code::class.java)
 
         val verifier = Verifier()
-        println(verifier.verifyCode(code))
+        val isCodeValid = verifier.verifyCode(code)
 
-        val response = gson.toJson(code)
+        var response: String = "NO AUTHORIZED"
+        if (isCodeValid) {
+            response = "AUTHORIZED"
+        }
+
+        response = """
+                { "message": "$response" }
+            """.trimIndent()
+
         call.respondText(response, ContentType.Application.Json)
     }
 }
