@@ -15,19 +15,19 @@ class CodeMaker(
   }
 
   fun saveCodeInMemory() {
-    // TODO: ACTUALLY IMPLEMENT THIS METHOD.
-    println("Save code(${this.code}) to memory.")
+    val code = Code(this.user.id, this.code)
+    Codes.insertCode(code)
   }
 
   fun sendCodeToDevice() {
-    println("Sending code(${this.code}) to device.")
-
     when (this.twoFactorAuthOption) {
       OPTION_PHONE_NUMBER -> {
-        val phone = Phone(user.phone, this.twoFactorAuthOption)
+        val phone = Phone(user.phone, this.code)
+        phone.sendCode()
       }
       OPTION_EMAIL -> {
-        val email = Email(user.email, this.twoFactorAuthOption)
+        val email = Email(user.email, this.code)
+        email.sendCode()
       }
       else -> print("NOT A VALID AUTH OPTION!")
     }

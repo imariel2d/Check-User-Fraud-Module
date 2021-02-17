@@ -1,15 +1,11 @@
 package com.app
 
-import java.io.File
-
 class Email(
   private val email: String,
   private val code: Int,
 ) {
 
   fun sendCode() {
-    val formattedCode = "$email|$code\n"
-    val file = File("codes");
-    file.appendText(formattedCode)
+    println("Sending code($code) to Email($email)...")
   }
 }

@@ -1,4 +1,4 @@
-package com.example
+package com.controllers
 
 import io.ktor.application.*
 import io.ktor.routing.*

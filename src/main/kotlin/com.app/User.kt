@@ -1,7 +1,7 @@
 package com.app
 
 class User(
-  val id: Number,
+  val id: Int,
   val phone: String,
   val email: String,
   val twoFactorAuth: Int,
