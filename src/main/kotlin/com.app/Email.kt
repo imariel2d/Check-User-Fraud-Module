@@ -1,3 +1,5 @@
+package com.app
+
 import java.io.File
 
 class Email(

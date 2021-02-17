@@ -1,5 +1,8 @@
+package com.app
+
 import kotlin.math.floor
 import kotlin.math.roundToInt
+
 
 class CodeGenerator {
   fun generateCode () : Int {
