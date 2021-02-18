@@ -7,4 +7,8 @@ object Codes {
         println("Saving ${code.code} in memory...")
         codes.add(code)
     }
+
+    fun removeCode(code: Code) {
+        codes.remove(code)
+    }
 }
